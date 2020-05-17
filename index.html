@@ -37,8 +37,35 @@
                     return "It's a tie!";
                 }
             }
+
+            function game(){
+                let scoreUser = 0;
+                let scoreComputer = 0;
+                while(true){
+
+                    let userChoice = prompt("Enter your selection");
+                    let outcome = rockPaperScissors(computerPlay(), userChoice);
+                    if(outcome.includes("won")){
+                        scoreUser += 1;
+                        console.log(outcome);
+                    }else if(outcome.includes("lost")){
+                        scoreComputer += 1;
+                        console.log(outcome);                        
+                    }else{
+                        console.log(outcome);
+                    }
+
+                    if(scoreComputer == 5){
+                        console.log(`You lost! ${scoreComputer}:${scoreUser}`);
+                        break;
+                    }else if(scoreUser == 5){
+                        console.log(`You won! ${scoreUser}:${scoreComputer}`);
+                        break;
+                    }
+                }
+            }
             
-            
+            game();
         </script>
     </body>
 </html>
