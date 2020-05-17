@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock, paper, scissors!</title>
+        <meta charset="UTF-8"/>
+        <link href="css/reset.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <script>
+            function computerPlay(){
+                let getRandomNumber = () => Math.floor(Math.random() * 3);
+                choice = getRandomNumber();
+                if(choice == 0){
+                    return "rock";
+                }else if(choice == 1){
+                    return "paper";
+                }else{
+                    return "scissors";
+                }
+            }
+
+            function rockPaperScissors(computerChoice, userChoice){
+                userChoice = userChoice.toLowerCase();
+                if(computerChoice == "rock" && userChoice == "paper"){
+                    return "You won! Paper beats Rock";
+                }else if(computerChoice == "rock" && userChoice == "scissors"){
+                    return "You lost! Rock beats Scissors";
+                }else if(computerChoice == "paper" && userChoice == "rock"){
+                    return "You lost! Paper beats Rock";
+                }else if(computerChoice == "paper" && userChoice == "scissors"){
+                    return "You won! Scissors beat Paper";
+                }else if(computerChoice == "scissors" && userChoice == "rock"){
+                    return "You won! Rock beats Scissors";
+                }else if(computerChoice == "scissors" && userChoice == "paper"){
+                    return "You lost! Scissors beat paper";
+                }else if(computerChoice == userChoice){
+                    return "It's a tie!";
+                }
+            }
+
+            function game(){
+                let scoreUser = 0;
+                let scoreComputer = 0;
+                while(true){
+
+                    let userChoice = prompt("Enter your selection");
+                    let outcome = rockPaperScissors(computerPlay(), userChoice);
+                    if(outcome.includes("won")){
+                        scoreUser += 1;
+                        console.log(outcome);
+                    }else if(outcome.includes("lost")){
+                        scoreComputer += 1;
+                        console.log(outcome);                        
+                    }else{
+                        console.log(outcome);
+                    }
+
+                    if(scoreComputer == 5){
+                        console.log(`You lost! ${scoreComputer}:${scoreUser}`);
+                        break;
+                    }else if(scoreUser == 5){
+                        console.log(`You won! ${scoreUser}:${scoreComputer}`);
+                        break;
+                    }
+                }
+            }
+            
+            game();
+        </script>
+    </body>
+</html>
