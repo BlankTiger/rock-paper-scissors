@@ -11,17 +11,34 @@
                 let getRandomNumber = () => Math.floor(Math.random() * 3);
                 choice = getRandomNumber();
                 if(choice == 0){
-                    return "Rock";
+                    return "rock";
                 }else if(choice == 1){
-                    return "Paper";
+                    return "paper";
                 }else{
-                    return "Scissors";
+                    return "scissors";
                 }
             }
 
             function rockPaperScissors(computerChoice, userChoice){
-
-            }            
+                userChoice = userChoice.toLowerCase();
+                if(computerChoice == "rock" && userChoice == "paper"){
+                    return "You won! Paper beats Rock";
+                }else if(computerChoice == "rock" && userChoice == "scissors"){
+                    return "You lost! Rock beats Scissors";
+                }else if(computerChoice == "paper" && userChoice == "rock"){
+                    return "You lost! Paper beats Rock";
+                }else if(computerChoice == "paper" && userChoice == "scissors"){
+                    return "You won! Scissors beat Paper";
+                }else if(computerChoice == "scissors" && userChoice == "rock"){
+                    return "You won! Rock beats Scissors";
+                }else if(computerChoice == "scissors" && userChoice == "paper"){
+                    return "You lost! Scissors beat paper";
+                }else if(computerChoice == userChoice){
+                    return "It's a tie!";
+                }
+            }
+            
+            
         </script>
     </body>
 </html>
